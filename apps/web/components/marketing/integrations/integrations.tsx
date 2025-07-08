@@ -3,7 +3,7 @@ import { IntegrationsVisual } from "./visual";
 
 export default function Integrations() {
   return (
-    <div className="mx-auto flex max-w-5xl flex-col gap-4 px-4 py-10">
+    <div className="mx-auto flex max-w-5xl flex-col gap-4 px-4 pb-10 pt-24">
       <div className="flex flex-col gap-2">
         <h3 className="text-lg font-bold text-primary">Integrations</h3>
         <h2 className="text-balance text-4xl font-bold">

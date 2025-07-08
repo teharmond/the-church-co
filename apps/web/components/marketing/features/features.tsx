@@ -1,10 +1,14 @@
 import React from "react";
 import AndMoreCard from "./and-more-card";
 import { moreFeatures } from "./more-features";
+import Image from "next/image";
+
+const builderImage = "/builder.png";
+const appImage = "/mobile.avif";
 
 export default function Features() {
   return (
-    <div className="mx-auto flex max-w-5xl flex-col items-center gap-8 px-4 py-10">
+    <div className="mx-auto flex max-w-5xl flex-col items-center gap-24 px-4 py-10">
       <div className="flex w-full flex-col gap-8">
         <div className="flex w-full flex-col gap-2">
           <h3 className="text-lg font-bold text-primary">Features</h3>
@@ -16,6 +20,13 @@ export default function Features() {
             you want to reach.
           </p>
         </div>
+        <Image
+          src={builderImage}
+          alt="Website builder"
+          width={1000}
+          height={1000}
+          className="w-full rounded-lg shadow-md"
+        />
       </div>
       <div className="flex w-full flex-col gap-8">
         <div className="flex w-full flex-col gap-2">
@@ -27,6 +38,13 @@ export default function Features() {
             your website and app stays in sync.
           </p>
         </div>
+        <Image
+          src={appImage}
+          alt="Branded mobile app"
+          width={1000}
+          height={1000}
+          className="w-full rounded-lg border shadow-md"
+        />
       </div>
       <div className="flex w-full flex-col gap-8">
         <div className="flex w-full flex-col gap-2">
