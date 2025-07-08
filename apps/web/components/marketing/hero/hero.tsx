@@ -9,25 +9,22 @@ const heroImage = "/hero-image.png";
 
 export default function hero() {
   return (
-    <div className="flex w-full flex-col items-center justify-center">
+    <div className="flex w-full flex-col items-center justify-center gap-3">
       <div className="mx-auto h-full w-full max-w-6xl px-4 pt-24">
-        <div className="flex w-full flex-col gap-8">
-          <Link href="/free-church-websites">
+        <div className="flex flex-col gap-6 md:gap-8">
+          <Link href="/free-church-websites" className="w-fit">
             <Badge className="rounded-full bg-secondary px-4 py-1 text-sm font-normal text-primary">
               We build church websites for free
             </Badge>
           </Link>
-          <h1 className="text-balance text-6xl font-bold">
-            Websites that connect
-            <br />
-            your Church community
+          <h1 className="max-w-2xl text-balance text-4xl font-bold md:text-6xl">
+            Websites that connect your Church community
           </h1>
-          <p className="text-balance text-xl font-medium">
+          <p className="max-w-2xl text-balance text-lg font-medium md:text-xl">
             The Church Co is the complete digital platform for your church
-            <br />
             helping you reach new people and engage your members.
           </p>
-          <div className="flex gap-4">
+          <div className="mt-2 flex gap-4">
             <Button className="h-12 gap-2 pl-4 pr-5 text-base font-semibold [&_svg:not([class*='size-'])]:size-5">
               <span className="shrink-0 -translate-y-[2px]">
                 <Click />

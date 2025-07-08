@@ -12,7 +12,7 @@ const logos = [
 
 export default function SocialProofMarque() {
   return (
-    <div className="mx-auto flex w-full max-w-6xl flex-col gap-8 overflow-hidden px-4">
+    <div className="mx-auto flex w-full max-w-6xl flex-col gap-8 overflow-hidden px-4 py-10">
       <h2 className="text-center text-xl font-bold text-muted-foreground">
         Trusted by over 5,000 churches
       </h2>
@@ -23,7 +23,7 @@ export default function SocialProofMarque() {
 
         {/* Scrolling marquee */}
         <div className="flex overflow-hidden">
-          <div className="animate-marquee flex whitespace-nowrap opacity-70">
+          <div className="animate-marquee flex whitespace-nowrap opacity-60">
             {logos.concat(logos).map((logo, index) => (
               <div key={index} className="mx-8 flex items-center">
                 <Image
