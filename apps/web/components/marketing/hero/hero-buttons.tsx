@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function HeroButtons({ invert }: { invert?: boolean }) {
   return (
-    <div className={cn("mt-2 flex gap-4", invert && "flex-row-reverse")}>
+    <div className={cn("mt-2 flex gap-4", invert && "md:flex-row-reverse")}>
       <Link href="https://thechurchco.com/meet">
         <Button
           variant={invert ? "secondary" : "default"}
