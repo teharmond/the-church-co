@@ -13,7 +13,7 @@ export default function Pricing() {
   );
 
   return (
-    <div className="mx-auto flex w-full max-w-6xl flex-col gap-8 px-4 py-10">
+    <div className="mx-auto my-28 flex w-full max-w-6xl flex-col gap-8 px-6">
       <div className="mx-auto flex w-full max-w-2xl flex-col items-center gap-2">
         <h2 className="text-center text-4xl font-bold md:text-5xl">
           Church-Friendly Pricing

@@ -18,8 +18,8 @@ export default function SocialProofMarque() {
       </h2>
       <div className="relative">
         {/* Fade edges */}
-        <div className="absolute left-0 top-0 z-10 h-full w-20 bg-gradient-to-r from-background to-transparent" />
-        <div className="absolute right-0 top-0 z-10 h-full w-20 bg-gradient-to-l from-background to-transparent" />
+        <div className="absolute left-0 top-0 z-10 h-full w-20 bg-gradient-to-r from-accent to-transparent" />
+        <div className="absolute right-0 top-0 z-10 h-full w-20 bg-gradient-to-l from-accent to-transparent" />
 
         {/* Scrolling marquee */}
         <div className="flex overflow-hidden">

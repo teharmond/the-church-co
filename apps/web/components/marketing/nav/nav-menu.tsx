@@ -13,6 +13,7 @@ import MobileNavSheet from "./mobile-nav-sheet";
 import { ListItem } from "./list-item";
 import { features } from "./features";
 import { Separator } from "@the-church-co/ui/separator";
+import Compass from "@the-church-co/ui/icons/compass";
 
 export function NavMenu() {
   return (
@@ -28,7 +29,9 @@ export function NavMenu() {
         <NavigationMenu className="hidden md:block">
           <NavigationMenuList>
             <NavigationMenuItem>
-              <NavigationMenuTrigger>Features</NavigationMenuTrigger>
+              <NavigationMenuTrigger className="bg-transparent">
+                Features
+              </NavigationMenuTrigger>
               <NavigationMenuContent>
                 <ul className="grid w-[200px] gap-2 md:w-[250px] lg:w-[300px]">
                   {features.map((feature) => (
@@ -36,6 +39,7 @@ export function NavMenu() {
                       key={feature.title}
                       title={feature.title}
                       href={feature.href}
+                      icon={feature.icon}
                     >
                       {feature.description}
                     </ListItem>
@@ -44,8 +48,9 @@ export function NavMenu() {
                   <ListItem
                     title="Explore More"
                     href="/docs/primitives/alert-dialog"
+                    icon={Compass}
                   >
-                    Explore More
+                    There's so much more to The Church Co
                   </ListItem>
                 </ul>
               </NavigationMenuContent>

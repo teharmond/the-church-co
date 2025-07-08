@@ -1,9 +1,7 @@
-import React from "react";
 import { Badge } from "@the-church-co/ui/badge";
-import Link from "next/link";
 import Image from "next/image";
-import { Button } from "@the-church-co/ui/button";
-import { Click } from "@the-church-co/ui/icons/click";
+import Link from "next/link";
+import HeroButtons from "./hero-buttons";
 
 const heroImage = "/hero-image.png";
 
@@ -24,20 +22,7 @@ export default function hero() {
             The Church Co is the complete digital platform for your church
             helping you reach new people and engage your members.
           </p>
-          <div className="mt-2 flex gap-4">
-            <Button className="h-12 gap-2 pl-4 pr-5 text-base font-semibold [&_svg:not([class*='size-'])]:size-5">
-              <span className="shrink-0 -translate-y-[2px]">
-                <Click />
-              </span>
-              Book a Demo
-            </Button>
-            <Button
-              variant="secondary"
-              className="h-12 px-6 text-base font-semibold text-primary"
-            >
-              Get started
-            </Button>
-          </div>
+          <HeroButtons />
         </div>
       </div>
 
