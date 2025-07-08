@@ -8,7 +8,7 @@ const heroImage = "/hero-image.png";
 export default function hero() {
   return (
     <div className="flex w-full flex-col items-center justify-center gap-3">
-      <div className="mx-auto h-full w-full max-w-6xl px-4 pt-24">
+      <div className="mx-auto h-full w-full max-w-5xl px-4 pt-24">
         <div className="flex flex-col gap-6 md:gap-8">
           <Link href="/free-church-websites" className="w-fit">
             <Badge className="rounded-full bg-secondary px-4 py-1 text-sm font-normal text-primary">
@@ -31,7 +31,7 @@ export default function hero() {
         alt="The Church Co"
         width={1000}
         height={1000}
-        className="w-full max-w-7xl"
+        className="w-full max-w-6xl"
       />
     </div>
   );

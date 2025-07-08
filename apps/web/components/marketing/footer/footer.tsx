@@ -6,7 +6,7 @@ import SocialIcons from "./social-icons";
 export default function Footer() {
   return (
     <footer className="border-b bg-accent pt-20">
-      <div className="mx-auto max-w-6xl px-6">
+      <div className="mx-auto max-w-5xl px-6">
         <div className="grid gap-8 md:grid-cols-4 lg:grid-cols-5 lg:gap-16">
           <div className="flex flex-col gap-3 lg:col-span-2">
             <Link

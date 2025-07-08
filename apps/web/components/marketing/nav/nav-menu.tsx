@@ -18,7 +18,7 @@ import Compass from "@the-church-co/ui/icons/compass";
 export function NavMenu() {
   return (
     <header className="sticky top-0 z-50 flex h-16 w-full shrink-0 items-center gap-2 border-b bg-background/80 backdrop-blur-lg">
-      <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-2 px-4">
+      <div className="mx-auto flex w-full max-w-5xl items-center justify-between gap-2 px-4">
         <Link
           href="/"
           className="flex items-center gap-2 text-nowrap font-semibold leading-none tracking-tighter text-foreground sm:text-lg"

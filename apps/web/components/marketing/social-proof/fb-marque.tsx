@@ -19,7 +19,7 @@ const testimonials = [
 
 export default function FbMarque() {
   return (
-    <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-8 overflow-hidden px-4 py-10">
+    <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-8 overflow-hidden px-4 pb-10">
       <div className="mb-2 flex flex-col items-center gap-2">
         <h2 className="text-balance text-center text-3xl font-bold">
           Here's what people like you are saying
@@ -33,8 +33,8 @@ export default function FbMarque() {
       </div>
       <div className="relative">
         {/* Fade edges */}
-        <div className="absolute left-0 top-0 z-10 h-full w-20 bg-gradient-to-r from-accent to-transparent" />
-        <div className="absolute right-0 top-0 z-10 h-full w-20 bg-gradient-to-l from-accent to-transparent" />
+        <div className="absolute left-0 top-0 z-50 h-full w-20 bg-gradient-to-r from-accent to-transparent" />
+        <div className="absolute right-0 top-0 z-50 h-full w-20 bg-gradient-to-l from-accent to-transparent" />
 
         {/* Scrolling marquee */}
         <div className="flex overflow-hidden pb-10">
