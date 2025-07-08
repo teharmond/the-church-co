@@ -11,8 +11,8 @@ export function ListItem({
     <li {...props}>
       <NavigationMenuLink asChild>
         <Link href={href}>
-          <div className="text-sm leading-none font-medium">{title}</div>
-          <p className="text-muted-foreground line-clamp-2 text-sm leading-snug">
+          <div className="text-sm font-medium leading-none">{title}</div>
+          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
             {children}
           </p>
         </Link>

@@ -17,13 +17,13 @@ import { Separator } from "@the-church-co/ui/separator";
 export function NavMenu() {
   return (
     <header className="sticky top-0 z-50 flex h-16 w-full shrink-0 items-center gap-2 border-b bg-background/80 backdrop-blur-lg">
-      <div className="mx-auto flex w-full max-w-5xl items-center justify-between gap-2 px-6">
+      <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-2 px-4">
         <Link
           href="/"
           className="flex items-center gap-2 text-nowrap font-semibold leading-none tracking-tighter text-foreground sm:text-lg"
         >
           <TheChurchCo height={"26"} width={"26"} />
-          <h1>The Church Co</h1>
+          <h2>The Church Co</h2>
         </Link>
         <NavigationMenu className="hidden md:block">
           <NavigationMenuList>
@@ -61,11 +61,11 @@ export function NavMenu() {
         <div className="flex items-center gap-2">
           <Button
             variant="ghost"
-            className="text-muted-foreground h-8 py-0 px-3"
+            className="h-8 px-3 py-0 text-muted-foreground"
           >
             Log in
           </Button>
-          <Button className="h-8 py-0 px-3">Sign up</Button>
+          <Button className="h-8 px-3 py-0">Sign up</Button>
           <MobileNavSheet />
         </div>
       </div>

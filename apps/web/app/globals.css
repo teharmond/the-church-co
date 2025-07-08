@@ -10,9 +10,9 @@
     --card-foreground: 240 10% 3.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
-    --primary: 238 99% 69%;
+    --primary: 213 90% 60%;
     --primary-foreground: 0 0% 98%;
-    --secondary: 231.44 100% 95.159%;
+    --secondary: 213 90% 95%;
     --secondary-foreground: 240 5.9% 10%;
     --muted: 240 4.8% 95.9%;
     --muted-foreground: 240 3.8% 46.1%;
@@ -116,4 +116,17 @@
   .slider-custom [data-radix-slider-thumb] {
     border-color: var(--slider-thumb-border) !important;
   }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
 }
