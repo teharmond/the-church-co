@@ -1,5 +1,5 @@
 {
-  "name": "web",
+  "name": "@the-church-co/web",
   "version": "0.1.0",
   "type": "module",
   "private": true,
@@ -11,18 +11,24 @@
     "check-types": "tsc --noEmit"
   },
   "dependencies": {
-    "@repo/ui": "workspace:*",
+    "@the-church-co/ui": "workspace:*",
+    "babel-plugin-react-compiler": "19.1.0-rc.2",
     "next": "^15.3.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },
   "devDependencies": {
-    "@repo/eslint-config": "workspace:*",
-    "@repo/typescript-config": "workspace:*",
+    "@tailwindcss/typography": "^0.5.15",
+    "autoprefixer": "10.4.17",
+    "@the-church-co/eslint-config": "workspace:*",
+    "@the-church-co/typescript-config": "workspace:*",
     "@types/node": "^22.15.3",
     "@types/react": "19.1.0",
     "@types/react-dom": "19.1.1",
     "eslint": "^9.30.0",
+    "prettier-plugin-tailwindcss": "^0.6.11",
+    "tailwindcss": "^3.4.17",
+    "tailwindcss-animate": "^1.0.7",
     "typescript": "5.8.2"
   }
 }
