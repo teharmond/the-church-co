@@ -9,6 +9,8 @@ import {
 import Menu from "@the-church-co/ui/icons/menu";
 import Link from "next/link";
 import { useState } from "react";
+import CreditCard from "@the-church-co/ui/icons/credit-card";
+import { Click } from "@the-church-co/ui/icons/click";
 
 export default function MobileNavSheet() {
   const [open, setOpen] = useState(false);
@@ -28,45 +30,28 @@ export default function MobileNavSheet() {
         animationsOn={false}
         className="relative mt-2.5 h-[calc(100vh-4rem)] w-screen overflow-y-auto rounded-none border-none bg-background/80 p-4 backdrop-blur-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 md:hidden"
       >
+        <Button className="h-12 w-full gap-3 text-base font-semibold [&_svg:not([class*='size-'])]:size-5">
+          <span className="-translate-y-0.5">
+            <Click height={20} width={20} />
+          </span>
+          Book a demo
+        </Button>
         <div className="flex flex-col gap-3 p-4 text-lg font-semibold">
-          <span className="text-sm text-muted-foreground">Features</span>
           <Link
             className="flex items-center gap-2 transition-colors hover:text-muted-foreground"
-            href="/#emails"
+            href="#"
             onClick={() => setOpen(false)}
           >
-            Emails
+            <CreditCard height={20} width={20} />
+            Features
           </Link>
           <Link
             className="flex items-center gap-2 transition-colors hover:text-muted-foreground"
-            href="/#automations"
+            href="#"
             onClick={() => setOpen(false)}
           >
-            Automations
-          </Link>
-          <Link
-            className="flex items-center gap-2 transition-colors hover:text-muted-foreground"
-            href="/#links"
-            onClick={() => setOpen(false)}
-          >
-            QR Codes
-          </Link>
-          <Link
-            className="flex items-center gap-2 transition-colors hover:text-muted-foreground"
-            href="/#links"
-            onClick={() => setOpen(false)}
-          >
-            Link Pages
-          </Link>
-        </div>
-        <div className="flex flex-col gap-3 p-4 text-lg font-semibold">
-          <span className="text-sm text-muted-foreground">Integrations</span>
-          <Link
-            className="flex items-center gap-2 transition-colors hover:text-muted-foreground"
-            href="/#pco"
-            onClick={() => setOpen(false)}
-          >
-            Planning Center
+            <CreditCard height={20} width={20} />
+            Examples
           </Link>
         </div>
         <div className="flex flex-col gap-3 p-4 text-lg font-semibold">
@@ -74,9 +59,10 @@ export default function MobileNavSheet() {
 
           <Link
             className="flex items-center gap-2 transition-colors hover:text-muted-foreground"
-            href="/pricing"
+            href="#"
             onClick={() => setOpen(false)}
           >
+            <CreditCard height={20} width={20} />
             Pricing
           </Link>
           <Link
@@ -94,6 +80,7 @@ export default function MobileNavSheet() {
           >
             Contact Us
           </Link>
+
           {/* <Link
             className="flex items-center gap-2 transition-colors hover:text-muted-foreground"
             href="https://help.churchspace.co/getting-started"

@@ -11,7 +11,7 @@ export default function AndMoreCard({
   icon: React.FC<IconProps>;
 }) {
   return (
-    <div className="rounded-lg bg-card p-4 py-6 shadow-md">
+    <div className="rounded-lg border bg-card p-4 py-6 shadow-md">
       <div className="flex flex-col items-center justify-center gap-4">
         <span className="text-primary">
           <Icon height={38} width={38} />

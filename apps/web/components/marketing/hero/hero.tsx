@@ -8,10 +8,10 @@ const heroImage = "/hero-image.png";
 export default function hero() {
   return (
     <div className="flex w-full flex-col items-center justify-center gap-3">
-      <div className="mx-auto h-full w-full max-w-5xl px-4 pt-24">
+      <div className="mx-auto h-full w-full max-w-5xl px-4 pt-16 md:pt-20">
         <div className="flex flex-col gap-6 md:gap-8">
-          <Link href="/free-church-websites" className="w-fit">
-            <Badge className="rounded-full bg-secondary px-4 py-1 text-sm font-normal text-primary">
+          <Link href="/free-church-websites" className="w-fit -translate-x-3">
+            <Badge className="rounded-full bg-secondary px-3 py-1 text-sm font-normal text-primary">
               We build church websites for free
             </Badge>
           </Link>
