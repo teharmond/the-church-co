@@ -1,12 +1,10 @@
 "use client";
 
-import { ChevronRight, type LucideIcon } from "lucide-react";
+import { type LucideIcon } from "lucide-react";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
+import { useState } from "react";
 
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@the-church-co/ui/collapsible";
 import {
   SidebarGroup,
   SidebarGroupLabel,
@@ -17,6 +15,7 @@ import {
   SidebarMenuSubButton,
   SidebarMenuSubItem,
 } from "@the-church-co/ui/sidebar";
+import { cn } from "@the-church-co/ui/lib/utils";
 
 export function NavMain({
   items,
@@ -32,41 +31,88 @@ export function NavMain({
     }[];
   }[];
 }) {
+  const pathname = usePathname();
+  const [clickedItems, setClickedItems] = useState<Set<string>>(new Set());
+
+  const handleItemClick = (itemTitle: string) => {
+    const clickedItem = items.find(item => item.title === itemTitle);
+    if (clickedItem?.items) {
+      // Open this item's subitems and close others
+      setClickedItems(new Set([itemTitle]));
+    } else {
+      // If clicking on an item without subitems, close all subitems optimistically
+      setClickedItems(new Set());
+    }
+  };
+
   return (
     <SidebarGroup>
       <SidebarGroupLabel>Platform</SidebarGroupLabel>
       <SidebarMenu>
-        {items.map((item) => (
-          <Collapsible
-            key={item.title}
-            asChild
-            defaultOpen={item.isActive}
-            className="group/collapsible"
-          >
-            <SidebarMenuItem>
-              <CollapsibleTrigger asChild>
-                <SidebarMenuButton tooltip={item.title}>
+        {items.map((item) => {
+          const isActive =
+            pathname === item.url ||
+            pathname.startsWith(item.url + "/") ||
+            (item.items?.some(
+              (sub) =>
+                pathname === sub.url || pathname.startsWith(sub.url + "/"),
+            ) ??
+              false);
+
+          const shouldShowSubItems = item.items && (isActive || clickedItems.has(item.title));
+
+          return (
+            <SidebarMenuItem key={item.title}>
+              <SidebarMenuButton
+                asChild
+                tooltip={item.title}
+                className={cn(
+                  "rounded-lg text-muted-foreground hover:text-foreground",
+                  isActive &&
+                    "border border-muted-foreground/20 bg-background text-foreground shadow-sm",
+                  !isActive && "hover:bg-transparent",
+                )}
+              >
+                <Link
+                  href={item.url}
+                  prefetch={true}
+                  scroll={false}
+                  shallow={true}
+                  onClick={() => handleItemClick(item.title)}
+                >
                   {item.icon && <item.icon />}
                   <span>{item.title}</span>
-                  <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
-                </SidebarMenuButton>
-              </CollapsibleTrigger>
-              <CollapsibleContent>
-                <SidebarMenuSub>
+                </Link>
+              </SidebarMenuButton>
+              {shouldShowSubItems && (
+                <SidebarMenuSub className="gap-0">
                   {item.items?.map((subItem) => (
                     <SidebarMenuSubItem key={subItem.title}>
-                      <SidebarMenuSubButton asChild>
-                        <a href={subItem.url}>
+                      <SidebarMenuSubButton
+                        asChild
+                        className={cn(
+                          "py-0 text-muted-foreground hover:bg-transparent hover:text-foreground",
+                          (pathname === subItem.url ||
+                            pathname.startsWith(subItem.url + "/")) &&
+                            "text-foreground",
+                        )}
+                      >
+                        <Link
+                          href={subItem.url}
+                          prefetch={true}
+                          scroll={false}
+                          shallow={true}
+                        >
                           <span>{subItem.title}</span>
-                        </a>
+                        </Link>
                       </SidebarMenuSubButton>
                     </SidebarMenuSubItem>
                   ))}
                 </SidebarMenuSub>
-              </CollapsibleContent>
+              )}
             </SidebarMenuItem>
-          </Collapsible>
-        ))}
+          );
+        })}
       </SidebarMenu>
     </SidebarGroup>
   );
