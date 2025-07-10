@@ -1,35 +1,12 @@
-import { AudioWaveform, Command, GalleryVerticalEnd } from "lucide-react";
-import WebsiteClick from "@the-church-co/ui/icons/website-click";
 import CalendarIcon from "@the-church-co/ui/icons/calendar";
-import UsersIcon from "@the-church-co/ui/icons/users";
-import NotesIcon from "@the-church-co/ui/icons/notes";
 import GivingIcon from "@the-church-co/ui/icons/giving";
-import SettingsIcon from "@the-church-co/ui/icons/settings";
 import HomeIcon from "@the-church-co/ui/icons/home";
+import NotesIcon from "@the-church-co/ui/icons/notes";
+import SettingsIcon from "@the-church-co/ui/icons/settings";
+import UsersIcon from "@the-church-co/ui/icons/users";
+import WebsiteClick from "@the-church-co/ui/icons/website-click";
 
 export const data = {
-  user: {
-    name: "shadcn",
-    email: "m@example.com",
-    avatar: "/avatars/shadcn.jpg",
-  },
-  teams: [
-    {
-      name: "Acme Inc",
-      logo: GalleryVerticalEnd,
-      plan: "Enterprise",
-    },
-    {
-      name: "Acme Corp.",
-      logo: AudioWaveform,
-      plan: "Startup",
-    },
-    {
-      name: "Evil Corp.",
-      logo: Command,
-      plan: "Free",
-    },
-  ],
   navMain: [
     {
       title: "Home",
@@ -59,7 +36,7 @@ export const data = {
           url: "/website/design",
         },
         {
-          title: "Website Settings",
+          title: "Settings",
           url: "/website/settings",
         },
       ],
@@ -71,109 +48,117 @@ export const data = {
     },
     {
       title: "People",
-      url: "#",
+      url: "/people",
       icon: UsersIcon,
       items: [
         {
           title: "Dashboard",
-          url: "#",
+          url: "/people",
         },
         {
           title: "All People",
-          url: "#",
+          url: "/people/all",
         },
         {
           title: "Groups",
-          url: "#",
+          url: "/people/groups",
         },
         {
           title: "Prayer",
-          url: "#",
+          url: "/people/prayer",
         },
       ],
     },
     {
       title: "Content",
-      url: "#",
+      url: "/content",
       icon: NotesIcon,
       items: [
         {
+          title: "Dashboard",
+          url: "/content",
+        },
+        {
           title: "Sermons",
-          url: "#",
+          url: "/content/sermons",
         },
         {
           title: "Forms",
-          url: "#",
+          url: "/content/forms",
         },
         {
           title: "Blog",
-          url: "#",
+          url: "/content/blog",
         },
         {
           title: "Announcements",
-          url: "#",
+          url: "/content/announcements",
+        },
+        {
+          title: "Media",
+          url: "/content/media",
         },
         {
           title: "Contributors",
-          url: "#",
+          url: "/content/contributors",
         },
       ],
     },
     {
       title: "Giving",
-      url: "#",
+      url: "/giving",
       icon: GivingIcon,
       items: [
         {
           title: "Dashboard",
-          url: "#",
+          url: "/giving",
         },
         {
           title: "Funds",
-          url: "#",
+          url: "/giving/funds",
         },
         {
           title: "Transactions",
-          url: "#",
+          url: "/giving/transactions",
         },
         {
           title: "Recurring",
-          url: "#",
+          url: "/giving/recurring",
         },
         {
           title: "Settings",
-          url: "#",
+          url: "/giving/settings",
         },
       ],
     },
     {
       title: "Settings",
-      url: "#",
+      url: "/settings",
       icon: SettingsIcon,
       items: [
         {
-          title: "Organization",
-          url: "#",
+          title: "Profile",
+          url: "/settings",
         },
         {
-          title: "Profile",
-          url: "#",
+          title: "Organization",
+          url: "/settings/organization",
         },
         {
           title: "Billing",
-          url: "#",
+          url: "/settings/billing",
         },
         {
           title: "Campuses",
-          url: "#",
+          url: "/settings/campuses",
         },
         {
           title: "Integrations",
-          url: "#",
+          url: "/settings/integrations",
         },
         {
           title: "Admin Team",
-          url: "#",
+          url: "/settings/admin-team",
         },
       ],
     },

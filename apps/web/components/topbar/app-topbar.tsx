@@ -20,7 +20,7 @@ export default function AppTopbar() {
   const breadcrumbPaths = getBreadcrumbPaths(pathname);
 
   return (
-    <header className="flex h-12 w-full items-center justify-between border-b pl-2 pr-3">
+    <header className="flex h-14 w-full items-center justify-between border-b pl-2 pr-4">
       <div className="flex items-center gap-2">
         <SidebarTrigger />
         <div className="h-4 w-[1px] bg-border" />

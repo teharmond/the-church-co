@@ -2,24 +2,23 @@
 
 import * as React from "react";
 
+import { Logo } from "@/components/sidebar/logo";
 import { NavMain } from "@/components/sidebar/nav-main";
-import { TeamSwitcher } from "@/components/sidebar/team-switcher";
 import {
   Sidebar,
   SidebarContent,
-  SidebarFooter,
   SidebarHeader,
   SidebarRail,
 } from "@the-church-co/ui/sidebar";
-import { data } from "./sidebar-nav";
+import { data } from "./sidebar-nav-items";
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
-        <TeamSwitcher teams={data.teams} />
+        <Logo />
       </SidebarHeader>
-      <SidebarContent>
+      <SidebarContent className="mt-1">
         <NavMain items={data.navMain} />
       </SidebarContent>
       <SidebarRail />

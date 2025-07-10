@@ -1,4 +1,4 @@
-import { data } from "../sidebar/sidebar-nav";
+import { data } from "../sidebar/sidebar-nav-items";
 
 interface BreadcrumbPath {
   label: string;
@@ -14,27 +14,30 @@ export function getBreadcrumbPaths(pathname: string): BreadcrumbPath[] {
   }
 
   let currentPath = "";
-  
+
   for (let i = 0; i < segments.length; i++) {
     const segment = segments[i];
     currentPath += `/${segment}`;
-    
+
     // Find the main nav item
     const mainNavItem = data.navMain.find(
-      (item) => item.url === currentPath || item.url.startsWith(currentPath + "/")
+      (item) =>
+        item.url === currentPath || item.url.startsWith(currentPath + "/"),
     );
-    
+
     if (mainNavItem) {
       paths.push({
         label: mainNavItem.title,
         href: mainNavItem.url,
       });
-      
+
       // Check for sub-items
       if (mainNavItem.items && i < segments.length - 1) {
         const remainingPath = "/" + segments.slice(0, i + 2).join("/");
-        const subItem = mainNavItem.items.find((item) => item.url === remainingPath);
-        
+        const subItem = mainNavItem.items.find(
+          (item) => item.url === remainingPath,
+        );
+
         if (subItem) {
           paths.push({
             label: subItem.title,
@@ -51,13 +54,13 @@ export function getBreadcrumbPaths(pathname: string): BreadcrumbPath[] {
             .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
             .join(" ")
         : "Unknown";
-      
+
       paths.push({
         label,
         href: currentPath,
       });
     }
   }
-  
+
   return paths;
 }

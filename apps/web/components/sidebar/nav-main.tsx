@@ -46,6 +46,18 @@ export function NavMain({
     }
   };
 
+  // When navigating to a sub-item, ensure only its parent is expanded
+  const getActiveParentTitle = () => {
+    for (const item of items) {
+      if (item.items?.some((sub) => pathname === sub.url)) {
+        return item.title;
+      }
+    }
+    return null;
+  };
+
+  const activeParentTitle = getActiveParentTitle();
+
   return (
     <SidebarGroup>
       <SidebarMenu>
@@ -58,7 +70,8 @@ export function NavMain({
 
           const shouldShowSubItems =
             item.items &&
-            (isActive || hasActiveSubItem || clickedItems.has(item.title));
+            (activeParentTitle === item.title || 
+             (!activeParentTitle && clickedItems.has(item.title)));
 
           return (
             <SidebarMenuItem key={item.title}>
@@ -66,9 +79,9 @@ export function NavMain({
                 asChild
                 tooltip={item.title}
                 className={cn(
-                  "rounded-lg text-muted-foreground hover:text-primary active:border active:border-primary/20 active:bg-accent active:font-medium active:text-primary",
+                  "rounded-lg text-muted-foreground hover:text-primary active:bg-secondary active:font-medium active:text-primary active:outline active:outline-primary/20",
                   isActive &&
-                    "border border-primary/20 bg-secondary font-medium text-primary shadow-sm hover:bg-secondary",
+                    "bg-secondary font-medium text-primary shadow-sm outline outline-primary/20 hover:bg-secondary",
                   !isActive && "hover:bg-secondary",
                 )}
               >
