@@ -35,7 +35,7 @@ export function NavMain({
   const [clickedItems, setClickedItems] = useState<Set<string>>(new Set());
 
   const handleItemClick = (itemTitle: string) => {
-    const clickedItem = items.find(item => item.title === itemTitle);
+    const clickedItem = items.find((item) => item.title === itemTitle);
     if (clickedItem?.items) {
       // Open this item's subitems and close others
       setClickedItems(new Set([itemTitle]));
@@ -50,16 +50,15 @@ export function NavMain({
       <SidebarGroupLabel>Platform</SidebarGroupLabel>
       <SidebarMenu>
         {items.map((item) => {
-          const isActive =
-            pathname === item.url ||
-            pathname.startsWith(item.url + "/") ||
-            (item.items?.some(
-              (sub) =>
-                pathname === sub.url || pathname.startsWith(sub.url + "/"),
-            ) ??
-              false);
+          const hasActiveSubItem =
+            item.items?.some((sub) => pathname === sub.url) ?? false;
 
-          const shouldShowSubItems = item.items && (isActive || clickedItems.has(item.title));
+          // Main item is active if pathname matches exactly or if any sub-item is active
+          const isActive = pathname === item.url || hasActiveSubItem;
+
+          const shouldShowSubItems =
+            item.items &&
+            (isActive || hasActiveSubItem || clickedItems.has(item.title));
 
           return (
             <SidebarMenuItem key={item.title}>
@@ -67,10 +66,10 @@ export function NavMain({
                 asChild
                 tooltip={item.title}
                 className={cn(
-                  "rounded-lg text-muted-foreground hover:text-foreground",
+                  "rounded-lg text-muted-foreground hover:text-primary active:border active:border-primary/20 active:bg-accent active:font-medium active:text-primary",
                   isActive &&
-                    "border border-muted-foreground/20 bg-background text-foreground shadow-sm",
-                  !isActive && "hover:bg-transparent",
+                    "border border-primary/20 bg-secondary font-medium text-primary shadow-sm hover:bg-secondary",
+                  !isActive && "hover:bg-secondary",
                 )}
               >
                 <Link
@@ -79,6 +78,7 @@ export function NavMain({
                   scroll={false}
                   shallow={true}
                   onClick={() => handleItemClick(item.title)}
+                  className={cn(isActive && "text-primary")}
                 >
                   {item.icon && <item.icon />}
                   <span>{item.title}</span>
@@ -91,10 +91,9 @@ export function NavMain({
                       <SidebarMenuSubButton
                         asChild
                         className={cn(
-                          "py-0 text-muted-foreground hover:bg-transparent hover:text-foreground",
-                          (pathname === subItem.url ||
-                            pathname.startsWith(subItem.url + "/")) &&
-                            "text-foreground",
+                          "py-0 text-muted-foreground hover:bg-transparent hover:text-primary",
+                          pathname === subItem.url &&
+                            "font-medium text-primary",
                         )}
                       >
                         <Link

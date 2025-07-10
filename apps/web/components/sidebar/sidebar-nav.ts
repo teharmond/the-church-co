@@ -1,15 +1,11 @@
-import {
-  AudioWaveform,
-  Command,
-  GalleryVerticalEnd,
-  Settings2,
-  Home,
-  Globe,
-  Calendar,
-  Users,
-  FileText,
-  DollarSign,
-} from "lucide-react";
+import { AudioWaveform, Command, GalleryVerticalEnd } from "lucide-react";
+import WebsiteClick from "@the-church-co/ui/icons/website-click";
+import CalendarIcon from "@the-church-co/ui/icons/calendar";
+import UsersIcon from "@the-church-co/ui/icons/users";
+import NotesIcon from "@the-church-co/ui/icons/notes";
+import GivingIcon from "@the-church-co/ui/icons/giving";
+import SettingsIcon from "@the-church-co/ui/icons/settings";
+import HomeIcon from "@the-church-co/ui/icons/home";
 
 export const data = {
   user: {
@@ -38,45 +34,45 @@ export const data = {
     {
       title: "Home",
       url: "/home",
-      icon: Home,
+      icon: HomeIcon,
       isActive: true,
     },
     {
       title: "Website",
       url: "/website",
-      icon: Globe,
+      icon: WebsiteClick,
       items: [
         {
-          title: "Website",
-          url: "#",
+          title: "Dashboard",
+          url: "/website",
         },
         {
           title: "Pages",
-          url: "#",
+          url: "/website/pages",
         },
         {
           title: "Navigation",
-          url: "#",
+          url: "/website/navigation",
         },
         {
           title: "Design",
-          url: "#",
+          url: "/website/design",
         },
         {
           title: "Website Settings",
-          url: "#",
+          url: "/website/settings",
         },
       ],
     },
     {
       title: "Events",
       url: "/events",
-      icon: Calendar,
+      icon: CalendarIcon,
     },
     {
       title: "People",
       url: "#",
-      icon: Users,
+      icon: UsersIcon,
       items: [
         {
           title: "Dashboard",
@@ -99,7 +95,7 @@ export const data = {
     {
       title: "Content",
       url: "#",
-      icon: FileText,
+      icon: NotesIcon,
       items: [
         {
           title: "Sermons",
@@ -126,7 +122,7 @@ export const data = {
     {
       title: "Giving",
       url: "#",
-      icon: DollarSign,
+      icon: GivingIcon,
       items: [
         {
           title: "Dashboard",
@@ -153,7 +149,7 @@ export const data = {
     {
       title: "Settings",
       url: "#",
-      icon: Settings2,
+      icon: SettingsIcon,
       items: [
         {
           title: "Organization",
