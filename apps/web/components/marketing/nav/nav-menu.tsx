@@ -68,9 +68,11 @@ export function NavMenu() {
             variant="ghost"
             className="h-8 px-3 py-0 text-muted-foreground"
           >
-            Log in
+            Sign out
           </Button>
-          <Button className="h-8 px-3 py-0">Sign up</Button>
+          <Link href="/home">
+            <Button className="h-8 px-3 py-0">Dashboard</Button>
+          </Link>
           <MobileNavSheet />
         </div>
       </div>

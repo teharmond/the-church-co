@@ -6,7 +6,7 @@ import { Twitter } from "@the-church-co/ui/icons/twitter";
 import { Youtube } from "@the-church-co/ui/icons/youtube";
 import { Instagram } from "@the-church-co/ui/icons/instagram";
 import { Search } from "@the-church-co/ui/icons/search";
-import { useIsMobile } from "../../../hooks/use-mobile";
+import { useIsMobile } from "@the-church-co/ui/hooks/use-mobile";
 import { cn } from "@the-church-co/ui/lib/utils";
 
 export default function SocialIcons() {
