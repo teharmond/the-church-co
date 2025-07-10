@@ -4,6 +4,7 @@ import { type LucideIcon } from "lucide-react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { useState } from "react";
+import type { ComponentType } from "react";
 
 import {
   SidebarGroup,
@@ -23,7 +24,7 @@ export function NavMain({
   items: {
     title: string;
     url: string;
-    icon?: LucideIcon;
+    icon?: LucideIcon | ComponentType<any>;
     isActive?: boolean;
     items?: {
       title: string;
@@ -47,7 +48,6 @@ export function NavMain({
 
   return (
     <SidebarGroup>
-      <SidebarGroupLabel>Platform</SidebarGroupLabel>
       <SidebarMenu>
         {items.map((item) => {
           const hasActiveSubItem =
