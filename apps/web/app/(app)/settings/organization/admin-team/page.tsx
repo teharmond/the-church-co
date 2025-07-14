@@ -16,20 +16,20 @@ import {
 import { ChevronRight } from "lucide-react";
 import { useRouter } from "next/navigation";
 import React from "react";
-import NewAnnouncementDialog from "./new-announcement-dialog";
+import NewTeamMemberDialog from "./new-team-member-dialog";
 import { Input } from "@the-church-co/ui/input";
 import { Button } from "@the-church-co/ui/button";
 
-const announcements = [
+const teamMembers = [
   {
-    title: "Sunday Service Change",
-    description: "Important update about this Sunday's service time",
-    path: "/content/announcements/1",
+    title: "John Smith",
+    description: "john.smith@church.com",
+    path: "/settings/organization/admin-team/1",
   },
   {
-    title: "Community Event",
-    description: "Annual community outreach event announcement",
-    path: "/content/announcements/2",
+    title: "Sarah Johnson",
+    description: "sarah.johnson@church.com",
+    path: "/settings/organization/admin-team/2",
   },
 ];
 
@@ -40,37 +40,37 @@ export default function page() {
       <SettingsSection>
         <div className="flex justify-between">
           <SettingsHeader>
-            <SettingsTitle>Announcements</SettingsTitle>
-            <SettingsDescription>Manage your announcements.</SettingsDescription>
+            <SettingsTitle>Admin Team</SettingsTitle>
+            <SettingsDescription>Manage your admin team members.</SettingsDescription>
           </SettingsHeader>
-          <NewAnnouncementDialog />
+          <NewTeamMemberDialog />
         </div>
         <div className="flex items-center gap-2">
-          <Input placeholder="Search announcements" className="h-10 w-full" />
+          <Input placeholder="Search team members" className="h-10 w-full" />
           <Button className="h-10 rounded-md" variant="outline">
             View Archived
           </Button>
         </div>
         <SettingsContent>
-          {announcements.map((setting, index) => {
+          {teamMembers.map((member, index) => {
             return (
               <SettingsRow
-                key={setting.path}
+                key={member.path}
                 larger
                 isFirstRow={index === 0}
-                onClick={() => router.push(setting.path)}
+                onClick={() => router.push(member.path)}
                 className={cn(
                   "group cursor-pointer hover:bg-accent",
                   index === 0 && "rounded-t-md",
-                  index === announcements.length - 1 && "rounded-b-md",
+                  index === teamMembers.length - 1 && "rounded-b-md",
                 )}
               >
                 <SettingsRowDetails>
                   <SettingsRowTitle className="flex items-center gap-2">
-                    {setting.title}
+                    {member.title}
                   </SettingsRowTitle>
                   <SettingsRowDescription>
-                    {setting.description}
+                    {member.description}
                   </SettingsRowDescription>
                 </SettingsRowDetails>
                 <SettingsRowAction larger>

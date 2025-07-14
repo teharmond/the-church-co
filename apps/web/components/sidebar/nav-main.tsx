@@ -39,8 +39,9 @@ export function NavMain({
   const isUrlActive = (url: string) => {
     if (pathname === url) return true;
     
-    // For /settings, only match exactly to avoid matching all sub-routes
-    if (url === "/settings") return pathname === "/settings";
+    // For parent routes that have subitems, only match exactly
+    const parentRoute = items.find(item => item.url === url && item.items);
+    if (parentRoute) return pathname === url;
     
     // For other URLs, check if pathname starts with url/
     return pathname.startsWith(`${url}/`);
