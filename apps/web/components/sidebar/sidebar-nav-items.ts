@@ -153,6 +153,14 @@ export const data = {
           url: "/settings/campuses",
         },
         {
+          title: "Block List",
+          url: "/settings/block-list",
+        },
+        {
+          title: "Branding",
+          url: "/settings/branding",
+        },
+        {
           title: "Integrations",
           url: "/settings/integrations",
         },
