@@ -24,10 +24,10 @@ import { Button } from "@the-church-co/ui/button";
 import { useState } from "react";
 import Duplicate from "@the-church-co/ui/icons/duplicate";
 import Trash from "@the-church-co/ui/icons/trash";
+import { Avatar, AvatarFallback, AvatarImage } from "@the-church-co/ui/avatar";
 
 export default function TeamMemberSettingsPage() {
   const [role, setRole] = useState("admin");
-  const [status, setStatus] = useState("active");
 
   return (
     <div className="mt-6 w-full space-y-6 p-5">
@@ -35,37 +35,62 @@ export default function TeamMemberSettingsPage() {
         <SettingsHeader>
           <SettingsTitle>Team Member Settings</SettingsTitle>
           <SettingsDescription>
-            Configure team member details and permissions.
+            Configure this team member's details and permissions.
           </SettingsDescription>
         </SettingsHeader>
         <SettingsContent>
           <SettingsRow larger isFirstRow>
             <SettingsRowDetails>
-              <SettingsRowTitle>Full Name</SettingsRowTitle>
+              <SettingsRowTitle>Avatar</SettingsRowTitle>
               <SettingsRowDescription>
-                The team member's full name.
+                Update the team member's profile picture.
               </SettingsRowDescription>
             </SettingsRowDetails>
             <SettingsRowAction larger>
-              <Input placeholder="Full Name" defaultValue="John Smith" />
+              <Avatar className="h-16 w-16">
+                <AvatarImage src="https://github.com/shadcn.png" />
+                <AvatarFallback>JD</AvatarFallback>
+              </Avatar>
             </SettingsRowAction>
           </SettingsRow>
           <SettingsRow larger>
             <SettingsRowDetails>
-              <SettingsRowTitle>Email Address</SettingsRowTitle>
+              <SettingsRowTitle>First Name</SettingsRowTitle>
               <SettingsRowDescription>
-                The team member's email address for login.
+                The team member's first name.
               </SettingsRowDescription>
             </SettingsRowDetails>
             <SettingsRowAction larger>
-              <Input placeholder="Email" defaultValue="john.smith@church.com" />
+              <Input placeholder="First Name" defaultValue="John" />
+            </SettingsRowAction>
+          </SettingsRow>
+          <SettingsRow larger>
+            <SettingsRowDetails>
+              <SettingsRowTitle>Last Name</SettingsRowTitle>
+              <SettingsRowDescription>
+                The team member's last name.
+              </SettingsRowDescription>
+            </SettingsRowDetails>
+            <SettingsRowAction larger>
+              <Input placeholder="Last Name" defaultValue="Doe" />
+            </SettingsRowAction>
+          </SettingsRow>
+          <SettingsRow larger>
+            <SettingsRowDetails>
+              <SettingsRowTitle>Email</SettingsRowTitle>
+              <SettingsRowDescription>
+                The team member's email address.
+              </SettingsRowDescription>
+            </SettingsRowDetails>
+            <SettingsRowAction larger>
+              <Input placeholder="Email" defaultValue="john.doe@example.com" />
             </SettingsRowAction>
           </SettingsRow>
           <SettingsRow larger>
             <SettingsRowDetails>
               <SettingsRowTitle>Role</SettingsRowTitle>
               <SettingsRowDescription>
-                The team member's role and permission level.
+                The team member's role and permissions level.
               </SettingsRowDescription>
             </SettingsRowDetails>
             <SettingsRowAction larger>
@@ -74,28 +99,9 @@ export default function TeamMemberSettingsPage() {
                   <SelectValue placeholder="Select role" />
                 </SelectTrigger>
                 <SelectContent>
+                  <SelectItem value="owner">Owner</SelectItem>
                   <SelectItem value="admin">Admin</SelectItem>
                   <SelectItem value="editor">Editor</SelectItem>
-                  <SelectItem value="viewer">Viewer</SelectItem>
-                </SelectContent>
-              </Select>
-            </SettingsRowAction>
-          </SettingsRow>
-          <SettingsRow larger>
-            <SettingsRowDetails>
-              <SettingsRowTitle>Status</SettingsRowTitle>
-              <SettingsRowDescription>
-                Control the team member's access status.
-              </SettingsRowDescription>
-            </SettingsRowDetails>
-            <SettingsRowAction larger>
-              <Select value={status} onValueChange={setStatus}>
-                <SelectTrigger className="w-full">
-                  <SelectValue placeholder="Select status" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="active">Active</SelectItem>
-                  <SelectItem value="suspended">Suspended</SelectItem>
                 </SelectContent>
               </Select>
             </SettingsRowAction>
@@ -116,22 +122,23 @@ export default function TeamMemberSettingsPage() {
         <SettingsContent>
           <SettingsRow isFirstRow>
             <SettingsRowDetails>
-              <SettingsRowTitle>Reset Password</SettingsRowTitle>
+              <SettingsRowTitle>Duplicate Member</SettingsRowTitle>
               <SettingsRowDescription>
-                Send a password reset email to this team member.
+                Create a copy of this team member with all their settings.
               </SettingsRowDescription>
             </SettingsRowDetails>
             <SettingsRowAction>
               <Button variant="outline" className="gap-2">
-                Send Reset Email
+                <Duplicate />
+                Duplicate
               </Button>
             </SettingsRowAction>
           </SettingsRow>
           <SettingsRow>
             <SettingsRowDetails>
-              <SettingsRowTitle>Remove Team Member</SettingsRowTitle>
+              <SettingsRowTitle>Remove Member</SettingsRowTitle>
               <SettingsRowDescription>
-                Permanently remove this team member. This action cannot be undone.
+                Remove this member from the admin team. This action cannot be undone.
               </SettingsRowDescription>
             </SettingsRowDetails>
             <SettingsRowAction>
