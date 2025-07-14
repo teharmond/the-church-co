@@ -145,28 +145,28 @@ export const data = {
           url: "/settings/organization",
         },
         {
-          title: "Billing",
-          url: "/settings/billing",
+          title: "Admin Team",
+          url: "/settings/admin-team",
         },
         {
           title: "Campuses",
           url: "/settings/campuses",
         },
         {
-          title: "Block List",
-          url: "/settings/block-list",
-        },
-        {
           title: "Branding",
           url: "/settings/branding",
+        },
+        {
+          title: "Billing",
+          url: "/settings/billing",
         },
         {
           title: "Integrations",
           url: "/settings/integrations",
         },
         {
-          title: "Admin Team",
-          url: "/settings/admin-team",
+          title: "Block List",
+          url: "/settings/block-list",
         },
       ],
     },

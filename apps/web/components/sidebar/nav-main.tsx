@@ -35,6 +35,17 @@ export function NavMain({
   const pathname = usePathname();
   const [clickedItems, setClickedItems] = useState<Set<string>>(new Set());
 
+  // Check if a URL is active, handling exact matches and sub-routes
+  const isUrlActive = (url: string) => {
+    if (pathname === url) return true;
+    
+    // For /settings, only match exactly to avoid matching all sub-routes
+    if (url === "/settings") return pathname === "/settings";
+    
+    // For other URLs, check if pathname starts with url/
+    return pathname.startsWith(`${url}/`);
+  };
+
   const handleItemClick = (itemTitle: string) => {
     const clickedItem = items.find((item) => item.title === itemTitle);
     if (clickedItem?.items) {
@@ -49,7 +60,7 @@ export function NavMain({
   // When navigating to a sub-item, ensure only its parent is expanded
   const getActiveParentTitle = () => {
     for (const item of items) {
-      if (item.items?.some((sub) => pathname === sub.url)) {
+      if (item.items?.some((sub) => isUrlActive(sub.url))) {
         return item.title;
       }
     }
@@ -63,7 +74,7 @@ export function NavMain({
       <SidebarMenu>
         {items.map((item) => {
           const hasActiveSubItem =
-            item.items?.some((sub) => pathname === sub.url) ?? false;
+            item.items?.some((sub) => isUrlActive(sub.url)) ?? false;
 
           // Main item is active if pathname matches exactly or if any sub-item is active
           const isActive = pathname === item.url || hasActiveSubItem;
@@ -105,7 +116,7 @@ export function NavMain({
                         asChild
                         className={cn(
                           "py-0 text-muted-foreground hover:bg-transparent hover:text-primary",
-                          pathname === subItem.url &&
+                          isUrlActive(subItem.url) &&
                             "font-medium text-primary",
                         )}
                       >
